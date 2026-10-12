@@ -1,0 +1,6 @@
+{
+  "name": "Aether: Encrypted Messaging & Cloud Suite",
+  "description": "Minimalist communication platform with ChaCha20-Poly1305 end-to-end encryption, live audio/video calls, voice messages, and integrated cloud storage.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
