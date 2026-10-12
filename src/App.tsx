@@ -186,7 +186,7 @@ export default function App() {
     }, 900);
 
     // Realistic automated peer response simulation for interactive immersion
-    if (msgData.type === 'text') {
+    if (msgData.type === 'text' && activeContact) {
       setTimeout(() => {
         const replyText = getContextualReply(activeContact.name, msgData.text || '');
         const peerMsgId = `msg_peer_${Date.now()}`;
@@ -204,7 +204,7 @@ export default function App() {
             nonceHex: 'd3f4a5b6c7d8e9f011223344',
             macTagHex: '778899aabbccddeeff00112233445566',
             ciphertextHex: '89ab01cd23ef...',
-            keyFingerprint: 'SHA256: ' + activeContact.publicKeyHex.slice(0, 8),
+            keyFingerprint: 'SHA256: ' + (activeContact.publicKeyHex?.slice(0, 8) || '00000000'),
           },
         };
 

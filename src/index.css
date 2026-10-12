@@ -27,3 +27,63 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(150, 150, 150, 0.45);
 }
+
+/* Circulating Gradient Border & Ambient Glow Animation */
+@keyframes circulate-border {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.circulating-gradient-container {
+  position: relative;
+  border-radius: 1.75rem; /* 28px */
+  padding: 2px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px -15px rgba(0, 0, 0, 0.8);
+}
+
+.circulating-gradient-container::before {
+  content: '';
+  position: absolute;
+  top: -120%;
+  left: -60%;
+  width: 220%;
+  height: 340%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    #06b6d4 45deg,
+    #3b82f6 90deg,
+    transparent 140deg,
+    #10b981 225deg,
+    #34d399 270deg,
+    transparent 320deg,
+    #06b6d4 360deg
+  );
+  animation: circulate-border 6s linear infinite;
+  z-index: 0;
+}
+
+.circulating-ambient-glow {
+  position: absolute;
+  inset: -12px;
+  border-radius: 2.25rem;
+  background: conic-gradient(
+    from 0deg,
+    #06b6d4 0deg,
+    #3b82f6 90deg,
+    #10b981 180deg,
+    #06b6d4 270deg,
+    #3b82f6 360deg
+  );
+  animation: circulate-border 10s linear infinite;
+  filter: blur(36px);
+  opacity: 0.35;
+  z-index: -1;
+  pointer-events: none;
+}
+
